@@ -10,7 +10,7 @@ export default defineConfig({
     port: 8080,
     open: true
   },
-  base: './',
+  base: '/bansou.github.io',
   build: {
     outDir: 'dist', //输出目录
     // assetsDir: 'assets', //静态资源目录
