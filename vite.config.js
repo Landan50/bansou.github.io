@@ -11,7 +11,7 @@ export default defineConfig({
     open: true
   },
   // /bansou.github.io
-  base: './',
+  base: '/bansou.github.io',
   build: {
     outDir: 'dist', //输出目录
     // assetsDir: 'assets', //静态资源目录
