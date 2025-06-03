@@ -27,7 +27,7 @@ onMounted(() => {
 
 <template>
     <!-- 底部 -->
-    <div class="container text-center mt-5">
+    <div class="container text-center">
         <div class="row d-inline-flex w-auto justify-content-between align-items-start">
             <div class="col-md-7 col-12">
                 <div class="row justify-content-around">
@@ -37,9 +37,8 @@ onMounted(() => {
                                 {{ $t('messages.bottomList[0][0]') }}
                             </div>
                             <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">
-                                <router-link to="/feedBack" target="_blank">
-                                    <!-- {{ $t('messages.bottomList[0][1]') }} -->
-                                    <div :class="isActive === '/feedBack' ? 'list-router-active' : ''">
+                                <router-link to="/aboutUs">
+                                    <div :class="isActive === '/aboutUs' ? 'list-router-active' : ''">
                                         {{ $t('messages.bottomList[0][1]') }}
                                     </div>
                                 </router-link>
@@ -58,11 +57,18 @@ onMounted(() => {
                                     </div>
                                 </router-link>
                             </div>
-                            <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
+                            <!-- <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
                                 $t('messages.bottomList[0][4]') }}
-                            </div>
+                            </div> -->
                             <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
                                 $t('messages.bottomList[0][5]') }}
+                            </div>
+                            <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">
+                                <router-link to="/feedBack" target="_blank">
+                                    <div :class="isActive === '/feedBack' ? 'list-router-active' : ''">
+                                        {{ $t('messages.bottomList[0][6]') }}
+                                    </div>
+                                </router-link>
                             </div>
                         </div>
                     </div>
@@ -71,18 +77,26 @@ onMounted(() => {
                             <div class="col-12 text-nowrap fw-semibold bottom-text-gesture" id="bottom-left-title">
                                 {{ $t('messages.bottomList[1][0]') }}
                             </div>
-                            <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
-                                $t('messages.bottomList[1][1]') }}
+                            <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">
+                                <router-link to="/memberProblem">
+                                    <div :class="isActive === '/memberProblem' ? 'list-router-active' : ''">
+                                        {{ $t('messages.bottomList[1][1]') }}
+                                    </div>
+                                </router-link>
                             </div>
-                            <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
-                                $t('messages.bottomList[1][2]') }}
+                            <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">
+                                <router-link to="/memberUse">
+                                    <div :class="isActive === '/memberUse' ? 'list-router-active' : ''">
+                                        {{ $t('messages.bottomList[1][2]') }}
+                                    </div>
+                                </router-link>
                             </div>
-                            <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
+                            <!-- <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
                                 $t('messages.bottomList[1][3]') }}
                             </div>
                             <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
                                 $t('messages.bottomList[1][4]') }}
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-2">
@@ -90,11 +104,19 @@ onMounted(() => {
                             <div class="col-12 text-nowrap fw-semibold bottom-text-gesture" id="bottom-left-title">
                                 {{ $t('messages.bottomList[2][0]') }}
                             </div>
-                            <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
-                                $t('messages.bottomList[2][1]') }}
+                            <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">
+                                <router-link to="/serviceProblem">
+                                    <div :class="isActive === '/serviceProblem' ? 'list-router-active' : ''">
+                                        {{ $t('messages.bottomList[2][1]') }}
+                                    </div>
+                                </router-link>
                             </div>
-                            <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
-                                $t('messages.bottomList[2][2]') }}
+                            <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">
+                                <router-link to="/serviceUse">
+                                    <div :class="isActive === '/serviceUse' ? 'list-router-active' : ''">
+                                        {{ $t('messages.bottomList[2][2]') }}
+                                    </div>
+                                </router-link>
                             </div>
                             <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
                                 $t('messages.bottomList[2][3]') }}
@@ -106,8 +128,12 @@ onMounted(() => {
                             <div class="col-12 text-nowrap fw-semibold bottom-text-gesture" id="bottom-left-title">
                                 {{ $t('messages.bottomList[3][0]') }}
                             </div>
-                            <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
-                                $t('messages.bottomList[3][1]') }}
+                            <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">
+                                <router-link to="/hotView">
+                                    <div :class="isActive === '/hotView' ? 'list-router-active' : ''">
+                                        {{ $t('messages.bottomList[3][1]') }}
+                                    </div>
+                                </router-link>
                             </div>
                             <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
                                 $t('messages.bottomList[3][2]') }}
@@ -116,29 +142,29 @@ onMounted(() => {
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-12 mt-4 mt-sm-0">
+            <div class="col-md-4 col-12 mt-4 mt-md-0">
                 <div class="row">
                     <div class="col-12">
-                        <div class="row justify-content-around">
-                            <div class="col-2 position-relative common-mouse-box main-img-box">
+                        <div class="d-flex justify-content-around">
+                            <div class="position-relative common-mouse-box main-img-box">
                                 <!-- 二维码图片 -->
                                 <div
                                     class="position-absolute start-0 w-auto h-auto opacity-0 hover-opacity-100 transition-code">
                                     <img src="../assets/images/index/You Tube@2x.png" class="img-fluid" alt="二维码">
                                 </div>
-                                <img src="../assets/images/index/fb@2x.png" class="img-fluid h-100 w-100"
+                                <img src="../assets/images/index/fb@2x.png" class="img-fluid common-img-box"
                                     style="object-fit: fill" alt="">
                             </div>
-                            <div class="col-2 common-mouse-box">
-                                <img src="../assets/images/index/yutube@2x.png" class="img-fluid h-100 w-100"
+                            <div class="common-mouse-box">
+                                <img src="../assets/images/index/yutube@2x.png" class="common-img-box img-fluid"
                                     style="object-fit: fill" alt="">
                             </div>
-                            <div class="col-2 common-mouse-box">
-                                <img src="../assets/images/index/IG@2x.png" class="img-fluid h-100 w-100"
+                            <div class="common-mouse-box">
+                                <img src="../assets/images/index/IG@2x.png" class="common-img-box img-fluid"
                                     style="object-fit: fill" alt="">
                             </div>
-                            <div class="col-2 common-mouse-box">
-                                <img src="../assets/images/index/email@2x.png" class="img-fluid h-100 w-100"
+                            <div class="common-mouse-box">
+                                <img src="../assets/images/index/email@2x.png" class="common-img-box img-fluid"
                                     style="object-fit: fill" alt="">
                             </div>
                         </div>
@@ -159,13 +185,18 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.common-img-box {
+    width: 50px;
+    height: 50px;
+}
+
 .common-mouse-box,
 .bottom-text-gesture {
     cursor: pointer;
 }
 
 .hover-opacity-100 {
-    top: -140%;
+    top: -100%;
 }
 
 /* 鼠标移入时显示二维码 */

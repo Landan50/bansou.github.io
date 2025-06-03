@@ -9,12 +9,22 @@ import router from './router/index';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import VuePdfEmbed from 'vue-pdf-embed'
 import StarRating from 'vue-star-rating'
+import YouTube from 'vue3-youtube'
 // import 'swiper/css/bundle';
 // import { Swiper, SwiperSlide } from 'swiper/vue';
 // .component('Swiper', Swiper).component('SwiperSlide', SwiperSlide)
+const loadYouTubeAPI = () => {
+  const tag = document.createElement('script')
+  tag.src = 'https://www.youtube.com/iframe_api'
+  const firstScriptTag = document.getElementsByTagName('script')[0]
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
+}
+
+loadYouTubeAPI()
 
 const app = createApp(App)
 
 app.component('VuePdfEmbed', VuePdfEmbed)
 app.component('StarRating', StarRating)
+app.component('YouTube', YouTube)
 app.use(router).use(i18n).mount('#app')

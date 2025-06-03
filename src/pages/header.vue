@@ -51,19 +51,29 @@ const fixedTop = () => {
             <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent1">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
                     <li class="nav-item px-lg-2 py-md-1">
-                        <img src="../assets/images/index/member@2x.png" class="img-fluid " alt=""
+                        <a href="https://wa.me/85293329002" target="_blank" class="nav-header-box">
+                            <img src="../assets/images/index/ServiceProvider@2x.png" class="img-fluid " alt=""
+                                id="header-right-icon">
+                            <span class="text align-middle">{{ $t('messages.headerSelect["member"]') }}</span>
+                        </a>
+                        <!-- <img src="../assets/images/index/ServiceProvider@2x.png" class="img-fluid " alt=""
                             id="header-right-icon">
-                        <span class="text align-middle">{{ $t('messages.headerSelect["member"]') }}</span>
+                        <span class="text align-middle">{{ $t('messages.headerSelect["member"]') }}</span> -->
                     </li>
                     <li class="nav-item px-lg-2 py-md-1">
-                        <img src="../assets/images/index/ServiceProvider@2x.png" class="img-fluid" alt=""
+                        <a href="https://wa.me/85261619791" class="nav-header-box">
+                            <img src="../assets/images/index/ServiceProvider@2x.png" class="img-fluid" alt=""
+                                id="header-right-icon">
+                            <span class="text align-middle">{{ $t('messages.headerSelect["service"]') }}</span>
+                        </a>
+                        <!-- <img src="../assets/images/index/ServiceProvider@2x.png" class="img-fluid" alt=""
                             id="header-right-icon">
-                        <span class="text align-middle">{{ $t('messages.headerSelect["service"]') }}</span>
+                        <span class="text align-middle">{{ $t('messages.headerSelect["service"]') }}</span> -->
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img src="../assets/images/index/ServiceProvider@2x.png" class="img-fluid" alt=""
+                            <img src="../assets/images/index/member@2x.png" class="img-fluid" alt=""
                                 id="header-right-icon">
                             <span class="text align-middle">{{ $t('messages.headerSelect["selectTitle"]') }}</span>
                         </a>
@@ -76,9 +86,9 @@ const fixedTop = () => {
                             <!-- <li><a class="dropdown-item" href="#">英文</a></li> -->
                         </ul>
                     </li>
-                    <li class="nav-item ms-lg-3 mb-2 mb-lg-0" id="button-box" style="background-color: white;">
+                    <!-- <li class="nav-item ms-lg-3 mb-2 mb-lg-0" id="button-box" style="background-color: white;">
                         <span class="button-text">{{ $t('messages.headerSelect["register"]') }}</span>
-                    </li>
+                    </li> -->
                     <li class="nav-item ms-lg-3" id="button-box" style="background-color: white;">
                         <span class="button-text">{{ $t('messages.headerSelect["login"]') }}</span>
                     </li>
@@ -98,6 +108,16 @@ const fixedTop = () => {
             </button>
             <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent2">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item dropdown mx-lg-3">
+                        <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{ $t('messages.subHeaderSelect[7]["title"]') }}
+                        </a>
+                        <!-- <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul> -->
+                    </li>
                     <li class="nav-item dropdown mx-lg-3">
                         <a class="nav-link dropdown-toggle no-caret border-bottom border-transparent hover-border-primary"
                             href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -239,45 +259,86 @@ const fixedTop = () => {
                                 {{ $t('messages.subHeaderSelect[4]["title"]') }}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-center">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][0]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][1]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][2]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][3]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][4]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][5]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][6]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][7]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][8]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][9]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][10]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][11]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][12]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][13]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][14]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][15]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][16]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][17]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][18]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][19]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][20]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][21]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][22]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][23]')
+                            }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][24]')
+                            }}</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown mx-lg-3">
+                    <!-- <li class="nav-item dropdown mx-lg-3">
                         <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             {{ $t('messages.subHeaderSelect[5]["title"]') }}
                         </a>
-                        <!-- <ul class="dropdown-menu">
+
+                        <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Action</a></li>
                             <li><a class="dropdown-item" href="#">Another action</a></li>
-                        </ul> -->
-                    </li>
-                    <li class="nav-item dropdown mx-lg-3">
+                        </ul>
+                    </li> -->
+                    <!-- <li class="nav-item dropdown mx-lg-3">
                         <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             {{ $t('messages.subHeaderSelect[6]["title"]') }}
                         </a>
-                        <!-- <router-link class="nav-link dropdown-toggle no-caret" :to="{ name: 'hello' }" target="_blank">
+
+                        <router-link class="nav-link dropdown-toggle no-caret" :to="{ name: 'hello' }" target="_blank">
                             打开新窗口
-                        </router-link> -->
-                        <!-- <ul class="dropdown-menu">
+                        </router-link>
+                        <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Action</a></li>
                             <li><a class="dropdown-item" href="#">Another action</a></li>
-                        </ul> -->
-                    </li>
-                    <li class="nav-item dropdown mx-lg-3">
-                        <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            {{ $t('messages.subHeaderSelect[7]["title"]') }}
-                        </a>
-                        <!-- <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                        </ul> -->
-                    </li>
+                        </ul>
+                    </li> -->
                 </ul>
-                <div class="search-box">
+                <!-- 搜索框 -->
+                <!-- <div class="search-box">
                     <div class="row w-100 justify-content-center">
                         <div class="col flex-grow-0">
                             <form role="search" id="form-box">
@@ -298,7 +359,7 @@ const fixedTop = () => {
                             </form>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </nav>
@@ -323,6 +384,14 @@ const fixedTop = () => {
   from { transform: translateY(-100%); }
   to { transform: translateY(0); }
 } */
+
+.nav-header-box {
+    cursor: pointer;
+}
+
+.nav-header-box:hover {
+    color: #000000 !important;
+}
 
 #button-box {
     cursor: pointer;

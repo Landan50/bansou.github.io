@@ -20,7 +20,8 @@
 }
 
 ::-webkit-scrollbar {
-  width: 0; /* 隐藏滚动条 */
+  width: 0;
+  /* 隐藏滚动条 */
 }
 
 /* a {
@@ -65,6 +66,11 @@ body {
   letter-spacing: 1px;
 }
 
+.common-text-style {
+  padding-left: 2em;
+  font-weight: bold;
+}
+
 h1,
 h2,
 h3,
@@ -92,9 +98,37 @@ input {
   padding: 0;
 }
 
-li {
-  list-style: none;
+.youtube-container {
+  width: 543px;
+  /* height: 306px; */
+
+  iframe {
+    width: 543px !important;
+    height: 306px !important;
+  }
 }
+
+ul {
+  margin-bottom: 0 !important;
+}
+
+p {
+  margin-bottom: 0 !important;
+}
+
+.common-font-style {
+  p {
+    line-height: 1.8em;
+  }
+}
+
+.common-line-height {
+  line-height: 2em;
+}
+
+/* li {
+  list-style: none;
+} */
 
 a img {
   border: none;

@@ -11,6 +11,10 @@ const messages = {
 
 const i18n = createI18n({
     legacy: false,
+    interpolation: {
+        prefix: '%{',  // 改用 %{var} 代替 | {var}
+        suffix: '}'
+    },
     locale: localStorage.getItem('lang') || 'ft',
     messages
 })

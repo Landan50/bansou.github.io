@@ -95,7 +95,7 @@ const setRatingTwo = (value) => {
         </div>
     </div>
 
-    <div class="container mt-4 text-start" style="background-color: #F8F8F8;height: 1007px;">
+    <div class="container mt-4 text-start feed-input-wrap" style="background-color: #F8F8F8;height: 1007px;">
         <form class="pt-4 needs-validation" novalidate @submit.prevent="handleSubmit">
             <div class="mb-4">
                 <label for="validationDefault01" class="form-label"><span class="required-text">*</span>
@@ -134,6 +134,10 @@ const setRatingTwo = (value) => {
 </template>
 
 <style scoped>
+.feed-input-wrap {
+    margin-bottom: 128px;
+}
+
 .star-rating-one,
 .star-rating-two {
     display: none;

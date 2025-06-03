@@ -2,6 +2,7 @@
 import { RouterLink } from 'vue-router'
 import { ref, onMounted, onUnmounted, defineAsyncComponent } from 'vue'
 import { useLazyLoad } from '../../utils/useLazyLoad'
+import { iconData, indexRunData } from '@/utils/data.js'
 
 const HeaderComponent = defineAsyncComponent(() =>
     import('@/pages/header.vue')
@@ -11,6 +12,8 @@ const BottomComponent = defineAsyncComponent(() =>
     import('@/pages/bottom.vue')
 );
 
+const iconList = ref(iconData)
+
 const { registerImage } = useLazyLoad()
 
 const imgIndex = ref(0);
@@ -19,6 +22,7 @@ const clickIndex = ref(0);
 const maxOffset = ref(0);//最大偏移量
 const currentOffset = ref(0);//当前偏移量
 const moveStatus = ref(true);
+const runData = ref(indexRunData[0]);
 
 // const isClick = ref(true);
 const isLength = ref(0);
@@ -48,6 +52,7 @@ const countVisibleElements = () => {
     currentOffset.value = 0;
 
 
+
     imgAll.forEach(item => {
         if (isElementInViewport(item)) {
             visibleCount++;
@@ -57,6 +62,21 @@ const countVisibleElements = () => {
     maxOffset.value = (imgAll.length - (visibleCount - 1)) * imgAll[0].clientWidth;
     isLength.value = visibleCount - 1;
 }
+
+//获取icon结果
+const getIconResult = () => {
+    //静态资源动态引入
+    iconData.map((item, index) => {
+        import(`@/assets/images/index/${item.url}.png`).then((path) => {
+            iconList.value.push({
+                url: path.default,
+                id: item.id
+            });
+        })
+    })
+    console.log(iconList.value);
+}
+// getIconResult();
 
 onMounted(() => {
     countVisibleElements();
@@ -68,51 +88,85 @@ onUnmounted(() => {
 })
 
 //向右滑动
+// const rightClick = () => {
+//     const container = document.querySelector('#run-row-box');
+//     const imgAll = document.querySelectorAll("#img-container");
+//     const run = document.querySelector('#run-container');
+
+//     clickIndex.value = clickIndex.value >= imgAll.length - 1 ? imgAll.length - 1 : clickIndex.value + 1;
+
+//     //下一个元素的边界
+//     if (!(container.getBoundingClientRect().right < (imgAll[clickIndex.value].getBoundingClientRect().left + 20))) {
+//         return
+//     }
+
+//     if (currentOffset.value > -maxOffset.value) {
+//         currentOffset.value -= imgAll[0].clientWidth;
+//         run.style.transform = `translateX(${currentOffset.value}px)`;
+//     }
+
+// }
+
 const rightClick = () => {
     const container = document.querySelector('#run-row-box');
     const imgAll = document.querySelectorAll("#img-container");
     const run = document.querySelector('#run-container');
 
-    clickIndex.value = clickIndex.value >= imgAll.length - 1 ? imgAll.length - 1 : clickIndex.value + 1;
 
-    //下一个元素的边界
-    if (!(container.getBoundingClientRect().right < (imgAll[clickIndex.value].getBoundingClientRect().left + 20))) {
-        return
-    }
-
-    if (currentOffset.value > -maxOffset.value) {
-        currentOffset.value -= imgAll[0].clientWidth;
+    if (currentOffset.value > -(maxOffset.value)) {
+        currentOffset.value -= container.clientWidth;
         run.style.transform = `translateX(${currentOffset.value}px)`;
+        clickIndex.value = -(currentOffset.value / container.clientWidth) * isLength.value;
+        runData.value = indexRunData[clickIndex.value];
     }
-
 }
 
 // 向左滑动
+// const leftClick = () => {
+//     const container = document.querySelector('#run-row-box');
+//     const imgAll = document.querySelectorAll("#img-container");
+//     const run = document.querySelector('#run-container');
+
+//     clickIndex.value = clickIndex.value <= 0 ? 0 : clickIndex.value - 1;
+
+//     //上一个元素的边界
+//     if (!(container.getBoundingClientRect().left > imgAll[clickIndex.value].getBoundingClientRect().right)) {
+//         return;
+//     }
+
+//     if (currentOffset.value < 0) {
+//         currentOffset.value += imgAll[0].clientWidth;
+//         run.style.transform = `translateX(${currentOffset.value}px)`;
+//     }
+// }
 const leftClick = () => {
     const container = document.querySelector('#run-row-box');
     const imgAll = document.querySelectorAll("#img-container");
     const run = document.querySelector('#run-container');
 
-    clickIndex.value = clickIndex.value <= 0 ? 0 : clickIndex.value - 1;
-
-    //上一个元素的边界
-    if (!(container.getBoundingClientRect().left > imgAll[clickIndex.value].getBoundingClientRect().right)) {
-        return;
-    }
-
     if (currentOffset.value < 0) {
-        currentOffset.value += imgAll[0].clientWidth;
+        currentOffset.value += container.clientWidth;
         run.style.transform = `translateX(${currentOffset.value}px)`;
+        clickIndex.value = -(currentOffset.value / container.clientWidth) * isLength.value;
+        runData.value = indexRunData[clickIndex.value];
     }
+
 }
 
 const chilckMove = (index) => {
     clickIndex.value = index;
+    runData.value = indexRunData[index];
 }
 
 //App滑动
 const moveBox = () => {
     moveStatus.value = !moveStatus.value;
+}
+
+const handleLoaded = (e) => {
+    const video = e.target;
+    video.currentTime = 1; // 强制跳到第一帧
+    video.pause();        // 暂停
 }
 
 </script>
@@ -165,86 +219,22 @@ const moveBox = () => {
             <div class="col-md-10 col-lg-10 col-5 position-relative overflow-hidden" id="run-row-box">
                 <div class="row flex-nowrap position-absolute align-items-center top-0 start-0 w-100"
                     id="run-container">
-                    <div :class="clickIndex === 0 ? 'col-lg-2 col-md-3 col-12 run-active' : 'col-lg-2 col-md-3 col-12'"
+                    <div v-for="(item, index) in iconList" :key="item.id"
+                        :class="clickIndex === index ? 'col-lg-2 col-md-3 col-12 run-active' : 'col-lg-2 col-md-3 col-12'"
+                        id="img-container" @click="chilckMove(index)">
+                        <div class="run-icon-box">
+                            <img :src="item.url" id="run-image-box" class="img-fluid" alt="">
+                        </div>
+                        <div class="run-icon-text text-nowrap">{{ $t(`messages.projectList[${index}]`) }}</div>
+                    </div>
+                    <!-- <div :class="clickIndex === 0 ? 'col-lg-2 col-md-3 col-12 run-active' : 'col-lg-2 col-md-3 col-12'"
                         id="img-container" @click="chilckMove(0)">
                         <div class="run-icon-box">
                             <img src="../../assets/images/index/home_serve@2x.png" id="run-image-box" class="img-fluid"
                                 alt="">
                         </div>
                         <div class="run-icon-text text-nowrap">{{ $t('messages.projectList[0]') }}</div>
-                    </div>
-                    <div :class="clickIndex === 1 ? 'col-lg-2 col-md-3 col-12 run-active' : 'col-lg-2 col-md-3 col-12'"
-                        id="img-container" @click="chilckMove(1)">
-                        <div class="run-icon-box">
-                            <img src="../../assets/images/index/beautyCare@2x.png" id="run-image-box" class="img-fluid"
-                                alt="">
-                        </div>
-                        <div class="run-icon-text text-nowrap">{{ $t('messages.projectList[1]') }}</div>
-                    </div>
-                    <div :class="clickIndex === 2 ? 'col-lg-2 col-md-3 col-12 run-active' : 'col-lg-2 col-md-3 col-12'"
-                        id="img-container" @click="chilckMove(2)">
-                        <div class="run-icon-box">
-                            <img src="../../assets/images/index/animal@2x.png" id="run-image-box" class="img-fluid"
-                                alt="">
-                        </div>
-                        <div class="run-icon-text text-nowrap">{{ $t('messages.projectList[2]') }}</div>
-                    </div>
-                    <div :class="clickIndex === 3 ? 'col-lg-2 col-md-3 col-12 run-active' : 'col-lg-2 col-md-3 col-12'"
-                        id="img-container" @click="chilckMove(3)">
-                        <div class="run-icon-box">
-                            <img src="../../assets/images/index/healthCare@2x.png" id="run-image-box" class="img-fluid"
-                                alt="">
-                        </div>
-                        <div class="run-icon-text text-nowrap">{{ $t('messages.projectList[3]') }}</div>
-                    </div>
-                    <div :class="clickIndex === 4 ? 'col-lg-2 col-md-3 col-12 run-active' : 'col-lg-2 col-md-3 col-12'"
-                        id="img-container" @click="chilckMove(4)">
-                        <div class="run-icon-box">
-                            <img src="../../assets/images/index/photoGraphy@2x.png" id="run-image-box" class="img-fluid"
-                                alt="">
-                        </div>
-                        <div class="run-icon-text text-nowrap">{{ $t('messages.projectList[4]') }}</div>
-                    </div>
-                    <div :class="clickIndex === 5 ? 'col-lg-2 col-md-3 col-12 run-active' : 'col-lg-2 col-md-3 col-12'"
-                        id="img-container" @click="chilckMove(5)">
-                        <div class="run-icon-box">
-                            <img src="../../assets/images/index/pregnancy@2x.png" id="run-image-box" class="img-fluid"
-                                alt="">
-                        </div>
-                        <div class="run-icon-text nowrap">{{ $t('messages.projectList[5]') }}</div>
-                    </div>
-                    <div :class="clickIndex === 6 ? 'col-lg-2 col-md-3 col-12 run-active' : 'col-lg-2 col-md-3 col-12'"
-                        id="img-container" @click="chilckMove(6)">
-                        <div class="run-icon-box">
-                            <img src="../../assets/images/index/learn@2x.png" id="run-image-box" class="img-fluid"
-                                alt="">
-                        </div>
-                        <div class="run-icon-text nowrap">{{ $t('messages.projectList[6]') }}</div>
-                    </div>
-                    <div :class="clickIndex === 7 ? 'col-lg-2 col-md-3 col-12 run-active' : 'col-lg-2 col-md-3 col-12'"
-                        id="img-container" @click="chilckMove(7)">
-                        <div class="run-icon-box">
-                            <img src="../../assets/images/index/wedding@2x.png" id="run-image-box" class="img-fluid"
-                                alt="">
-                        </div>
-                        <div class="run-icon-text nowrap">{{ $t('messages.projectList[7]') }}</div>
-                    </div>
-                    <div :class="clickIndex === 8 ? 'col-lg-2 col-md-3 col-12 run-active' : 'col-lg-2 col-md-3 col-12'"
-                        id="img-container" @click="chilckMove(8)">
-                        <div class="run-icon-box">
-                            <img src="../../assets/images/index/home_serve@2x.png" id="run-image-box" class="img-fluid"
-                                alt="">
-                        </div>
-                        <div class="run-icon-text nowrap">{{ $t('messages.projectList[1]') }}</div>
-                    </div>
-                    <div :class="clickIndex === 9 ? 'col-lg-2 col-md-3 col-12 run-active' : 'col-lg-2 col-md-3 col-12'"
-                        id="img-container" @click="chilckMove(9)">
-                        <div class="run-icon-box">
-                            <img src="../../assets/images/index/beautyCare@2x.png" id="run-image-box" class="img-fluid"
-                                alt="">
-                        </div>
-                        <div class="run-icon-text nowrap">{{ $t('messages.projectList[2]') }}</div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-2 col-sm-1" @click="rightClick">
@@ -256,86 +246,37 @@ const moveBox = () => {
     <!-- 业务详情表 -->
     <div class="container text-center" id="list-introduce-box" style="background-color: #FAFAFA;padding-bottom: 10px;">
         <div class="row justify-content-around pt-3 mb-2 cancel-margin-wrap">
-            <div class="col-md-3 col-12 mb-2 mb-md-0" id="project-list-wrap">
+
+            <div :class="index === 2 ? 'col-md-3 col-12' : 'col-md-3 col-12 mb-2 mb-md-0'" id="project-list-wrap"
+                v-for="(item, index) in runData" :key="item.id">
                 <div class="row w-100 position-relative cancel-margin-wrap">
                     <!-- <div class="col-12">
                         <div class="row w-100 position-relative" style="margin-left: 0; margin-right: 0;"> -->
                     <div class="col-12 h-auto" id="eco-img-box" style="z-index: 0;">
-                        <img src="../../assets/images/index/wangp1-tu@2x.png" id="common-ace-img" class="img-fluid"
-                            style="object-fit: fill;" alt="">
+                        <img :src="item.src" id="common-ace-img" class="img-fluid" style="object-fit: fill;" alt="">
                     </div>
                     <div class="row align-items-center position-absolute top-50 start-50 translate-middle"
                         style="z-index: 1;">
                         <div class="col-6">
-                            <img src="../../assets/images/index/wangpai1@2x.png" class="img-fluid project-img-box"
-                                alt="">
+                            <img src="../../assets/images/index/wangpai1@2x.png" v-if="index === 0"
+                                class="img-fluid project-img-box" alt="">
+                            <img src="../../assets/images/index/wangpai2@2x.png" v-else-if="index === 1"
+                                class="img-fluid project-img-box" alt="">
+                            <img src="../../assets/images/index/wangpai3@2x.png" v-else
+                                class="img-fluid project-img-box" alt="">
                         </div>
                         <div class="col-6">
                             <div class="row project-text-wrap">
-                                <div class="col-12 text-white">清洁消毒</div>
+                                <div class="col-12 text-white">{{ item.title }}</div>
                                 <div class="col-10 mx-auto mt-1 mb-1" style="height: 1px;background-color: white;">
                                 </div>
-                                <div class="col-12 text-white">经验了得好帮手</div>
+                                <div class="col-12 text-white">{{ item.describe }}</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- </div>
                 </div> -->
-            </div>
-            <div class="col-md-3 col-12 mb-2 mb-md-0" id="project-list-wrap">
-                <div class="row w-100 position-relative cancel-margin-wrap">
-                    <!-- <div class="col-12"> -->
-                    <!-- <div class="row w-100 position-relative" style="margin-left: 0; margin-right: 0;"> -->
-                    <div class="col-12 h-auto" id="eco-img-box" style="z-index: 0;">
-                        <img src="../../assets/images/index/wangp2-tu@2x.png" id="common-ace-img" class="img-fluid"
-                            alt="">
-                    </div>
-                    <div class="row align-items-center position-absolute top-50 start-50 translate-middle"
-                        style="z-index: 1;">
-                        <div class="col-6">
-                            <img src="../../assets/images/index/wangpai2@2x.png" class="img-fluid project-img-box"
-                                alt="">
-                        </div>
-                        <div class="col-6">
-                            <div class="row project-text-wrap">
-                                <div class="col-12 text-white">家居維修</div>
-                                <div class="col-10 mx-auto mt-1 mb-1" style="height: 1px;background-color: white;">
-                                </div>
-                                <div class="col-12 text-white">服務超過數萬家庭</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- </div>
-                </div> -->
-            </div>
-            <div class="col-md-3 col-12" id="project-list-wrap">
-                <div class="row w-100 position-relative cancel-margin-wrap">
-                    <!-- <div class="col-12"> -->
-                    <!-- <div class="row w-100 position-relative" style="margin-left: 0; margin-right: 0;"> -->
-                    <div class="col-12 h-auto" id="eco-img-box" style="z-index: 0;">
-                        <img src="../../assets/images/index/wangp3-tu@2x.png" id="common-ace-img" class="img-fluid"
-                            alt="">
-                    </div>
-                    <div class="row align-items-center position-absolute top-50 start-50 translate-middle"
-                        style="z-index: 1;">
-                        <div class="col-6">
-                            <img src="../../assets/images/index/wangpai3@2x.png" class="img-fluid project-img-box"
-                                alt="">
-                        </div>
-                        <div class="col-6">
-                            <div class="row project-text-wrap">
-                                <div class="col-12 text-white">通渠服務</div>
-                                <div class="col-10 mx-auto mt-1 mb-1" style="height: 1px;background-color: white;">
-                                </div>
-                                <div class="col-12 text-white">專業師傅信得過</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- </div> -->
-                    <!-- </div> -->
-                </div>
             </div>
         </div>
         <div class="common-mouse-box d-inline text-nowrap" style="color: #999999;font-size: 14px;">{{
@@ -359,7 +300,8 @@ const moveBox = () => {
             </div>
             <div class="col-12 col-sm-8 mt-4 mt-sm-0">
                 <div class="ratio ratio-16x9">
-                    <video controls autoplay loop muted>
+                    <!-- preload="metadata" 预加载元数据（包括第一帧） @loadedmetadata="handleLoaded" 元数据加载完成后触发 -->
+                    <video controls loop muted autoplay>
                         <source src="../../assets/video/bs_video.mp4" type="video/mp4">
                         您的浏览器不支持视频播放。
                     </video>
@@ -369,11 +311,12 @@ const moveBox = () => {
     </div>
 
     <!-- APP下载 -->
-    <div class="container text-center mt-5" id="list-introduce-box">
+    <div class="container text-center mt-5 mb-5" id="list-introduce-box">
         <div class="fs-5 fw-semibold mb-1">{{ $t('messages.reloadTitle') }}</div>
         <div style="color: #666666;font-size: 12px;">{{ $t('messages.reloadSubTitle') }}</div>
-        <div class="row mt-4 align-items-center">
-            <div v-if="moveStatus" class="col-md-4 col-12 mb-3 mb-md-0 left-btn-container" @mouseenter="moveBox"
+        <div class="d-flex mt-4 align-items-center justify-content-center app-box-wrap">
+            <!-- col-md-4 col-12 -->
+            <div v-if="moveStatus" class="mb-3 mb-md-0 left-btn-container" style="flex: 1;" @mouseenter="moveBox"
                 :id="moveStatus ? 'common-move-box' : ''">
                 <div class="d-flex flex-sm-column justify-content-around justify-content-sm-center align-items-center">
                     <div>
@@ -392,11 +335,10 @@ const moveBox = () => {
                 </div>
             </div>
 
-            <div v-else class="col-md-8 col-12 position-relative mt-4 mt-sm-0" style="height: 459px;"
+            <div v-else class="position-relative mt-4 mb-sm-3" style="width: 841px; height: 460px;"
                 :id="!moveStatus ? 'common-move-box' : ''">
-                <div class="position-absolute w-100 h-100 top-0 left-0" style="z-index: 0;">
-                    <img class="img-fluid h-100 w-100" style="object-fit: fill;"
-                        src="../../assets/images/index/vip_img@2x.png" alt="">
+                <div class="position-absolute top-0 left-0" style="z-index: 0;">
+                    <img class="img-fluid app-back-img" src="../../assets/images/index/vip_img@2x.png" alt="">
                 </div>
                 <div class="position-relative mt-2" style="z-index: 1;" id="title-header-box">
                     <img src="../../assets/images/index/vip_reload_icon@2x.png" style="height: 19px;" alt="">
@@ -430,7 +372,7 @@ const moveBox = () => {
                 </div>
             </div>
 
-            <div v-if="!moveStatus" class="col-md-4 col-12 mb-3 mb-sm-0 right-btn-container" @mouseenter="moveBox"
+            <div v-if="!moveStatus" class="mb-3 mb-sm-0 right-btn-container" style="flex: 1;" @mouseenter="moveBox"
                 :id="!moveStatus ? 'common-move-box' : ''">
                 <div class="d-flex flex-sm-column justify-content-around justify-content-sm-center align-items-center">
                     <div>
@@ -450,7 +392,7 @@ const moveBox = () => {
                 </div>
             </div>
 
-            <div v-else class="col-md-8 col-12 position-relative mt-4 mt-sm-0" style="height: 459px;"
+            <div v-else class="position-relative mt-4 mt-sm-3" style="width: 841px; height: 460px;"
                 :id="moveStatus ? 'common-move-box' : ''">
                 <div class="position-absolute w-100 h-100 top-0 left-0" style="z-index: 0;">
                     <img class="img-fluid h-100 w-100" style="object-fit: fill;"
@@ -673,6 +615,12 @@ video::-webkit-media-controls-timeline {
 @media (max-width: 420px) {
     .app-text-box {
         font-size: 12px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .app-box-wrap {
+        flex-wrap: wrap;
     }
 }
 
