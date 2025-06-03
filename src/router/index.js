@@ -83,8 +83,8 @@ const routes = [
 ]
 
 const router = createRouter({
-    // history: createWebHashHistory(),
-    history: createWebHistory(),
+    history: createWebHashHistory(),
+    // history: createWebHistory(),
     routes,
     scrollBehavior(to, from, scrollBehavior) {
         return new Promise((resolve, reject) => {
