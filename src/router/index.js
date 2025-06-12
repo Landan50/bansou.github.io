@@ -89,8 +89,8 @@ const routes = [
 ]
 
 const router = createRouter({
-    // history: createWebHashHistory('/bansou.github.io/'),
-    history: createWebHistory(),
+    history: createWebHashHistory('/bansou.github.io/'),
+    // history: createWebHistory(),
     routes,
     scrollBehavior(to, from, scrollBehavior) {
         return new Promise((resolve, reject) => {
