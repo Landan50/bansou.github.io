@@ -27,7 +27,7 @@ export function createResizeObserverManager() {
     // 取消监听单个元素
     function unobserveElement(element) {
         const record = observerMap.get(element);
-        console.log(record);
+        // console.log(record);
         
         if (record) {
             record.debouncedCallback.cancel();

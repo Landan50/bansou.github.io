@@ -67,7 +67,7 @@ const moveRight = () => {
 <template>
     <div class="hot-container-box">
         <div class="container hot-deatils-wrap">
-            <div class="fw-bold fs-2 text-start">{{ detailsData.title }}</div>
+            <div class="fw-bold fs-2 text-start">{{ $t(`messages.hotViewList[${route.params.page - 1}][${route.params.arrIndex}].title`) }}</div>
             <div class="text-start d-flex align-items-center mt-2">
                 <!-- <div class="common-font-style">2024-08-20 | 編輯：幫搜小姐姐 | 分享</div> -->
                 <div class="common-font-style">{{ detailsData.date }}</div>
@@ -103,13 +103,11 @@ const moveRight = () => {
                     <img :src="item" alt="">
                 </div>
             </div>
-            <div class="text-start common-font-style" v-html="detailsData.content"></div>
+            <div class="text-start common-font-style"
+                v-html="$t(`messages.hotViewList[${route.params.page - 1}][${route.params.arrIndex}].content`)"></div>
             <div class="details-tag-box" v-if="detailsData.tags.length > 0">
-                <div class="tag-text-box">孕婦日常</div>
-                <div class="tag-text-box">幫搜孕婦按摩服務</div>
-                <div class="tag-text-box">孕婦</div>
-                <div class="tag-text-box">孕婦按摩</div>
-                <div class="tag-text-box">孕期保養</div>
+                <div class="tag-text-box" v-for="(item, index) in detailsData.tags" :key="index">{{
+                    $t(`messages.hotViewList[${route.params.page - 1}][${route.params.arrIndex}].tags[${index}]`) }}</div>
             </div>
         </div>
     </div>

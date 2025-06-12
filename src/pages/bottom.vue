@@ -37,8 +37,8 @@ onMounted(() => {
                                 {{ $t('messages.bottomList[0][0]') }}
                             </div>
                             <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">
-                                <router-link to="/aboutUs">
-                                    <div :class="isActive === '/aboutUs' ? 'list-router-active' : ''">
+                                <router-link to="/aboutUs/2">
+                                    <div :class="isActive === '/aboutUs/2' ? 'list-router-active' : ''">
                                         {{ $t('messages.bottomList[0][1]') }}
                                     </div>
                                 </router-link>
@@ -60,8 +60,12 @@ onMounted(() => {
                             <!-- <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
                                 $t('messages.bottomList[0][4]') }}
                             </div> -->
-                            <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
-                                $t('messages.bottomList[0][5]') }}
+                            <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">
+                                <router-link to="/aboutUs/3">
+                                    <div :class="isActive === '/aboutUs/3' ? 'list-router-active' : ''">
+                                        {{ $t('messages.bottomList[0][5]') }}
+                                    </div>
+                                </router-link>
                             </div>
                             <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">
                                 <router-link to="/feedBack" target="_blank">
@@ -118,9 +122,9 @@ onMounted(() => {
                                     </div>
                                 </router-link>
                             </div>
-                            <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
+                            <!-- <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
                                 $t('messages.bottomList[2][3]') }}
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-2">
@@ -130,14 +134,14 @@ onMounted(() => {
                             </div>
                             <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">
                                 <router-link to="/hotView">
-                                    <div :class="isActive === '/hotView' ? 'list-router-active' : ''">
+                                    <div :class="isActive === '/hotView/list' ? 'list-router-active' : ''">
                                         {{ $t('messages.bottomList[3][1]') }}
                                     </div>
                                 </router-link>
                             </div>
-                            <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
+                            <!-- <div class="col-12 text-nowrap bottom-text-gesture" id="bottom-left-text">{{
                                 $t('messages.bottomList[3][2]') }}
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -152,16 +156,22 @@ onMounted(() => {
                                     class="position-absolute start-0 w-auto h-auto opacity-0 hover-opacity-100 transition-code">
                                     <img src="../assets/images/index/You Tube@2x.png" class="img-fluid" alt="二维码">
                                 </div>
-                                <img src="../assets/images/index/fb@2x.png" class="img-fluid common-img-box"
-                                    style="object-fit: fill" alt="">
+                                <a href="https://www.facebook.com/bonshou.hk" target="_blank">
+                                    <img src="../assets/images/index/fb@2x.png" class="img-fluid common-img-box"
+                                        style="object-fit: fill" alt="">
+                                </a>
                             </div>
                             <div class="common-mouse-box">
-                                <img src="../assets/images/index/yutube@2x.png" class="common-img-box img-fluid"
-                                    style="object-fit: fill" alt="">
+                                <a href="https://www.youtube.com/@bonshou_hk" target="_blank">
+                                    <img src="../assets/images/index/yutube@2x.png" class="common-img-box img-fluid"
+                                        style="object-fit: fill" alt="">
+                                </a>
                             </div>
                             <div class="common-mouse-box">
-                                <img src="../assets/images/index/IG@2x.png" class="common-img-box img-fluid"
-                                    style="object-fit: fill" alt="">
+                                <a href="https://www.instagram.com/bonshou_hk" target="_blank">
+                                    <img src="../assets/images/index/IG@2x.png" class="common-img-box img-fluid"
+                                        style="object-fit: fill" alt="">
+                                </a>
                             </div>
                             <div class="common-mouse-box">
                                 <img src="../assets/images/index/email@2x.png" class="common-img-box img-fluid"

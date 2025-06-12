@@ -30,7 +30,7 @@ const changIndex = (index) => {
 }
 
 onMounted(() => {
-    console.log(hotVidewData);
+    // console.log(hotVidewData);
     
     nextTick(() => {
         getGridEnd();
@@ -43,8 +43,8 @@ onUnmounted(() => {
 })
 
 //点击跳转
-const toDetails = (id) => {
-    router.push({ name: 'details', params: { id: id,page: paginationIndex.value } });
+const toDetails = (id,index) => {
+    router.push({ name: 'details', params: { id: id,page: paginationIndex.value,arrIndex: index } });
 }
 </script>
 
@@ -53,7 +53,7 @@ const toDetails = (id) => {
         <div class="hot-view-wrap">
             <div class="hot-view-box">
                 <div class="header-text1 mb-2">HotView 文章</div>
-                <div class="header-text2">HotView 熱話 網羅全城最爆最新話題！</div>
+                <div class="header-text2">{{ $t('messages.hotViewTitle') }}</div>
             </div>
         </div>
     </div>
@@ -66,7 +66,7 @@ const toDetails = (id) => {
                 <div v-if="headerIndex === 0" class="header-active-triangle"></div>
             </div>
             <div class="view-header-box text-nowrap" @click="changIndex(1)">
-                <span>熱門話題</span>
+                <span>{{ $t('messages.gotViewNavs[0]') }}</span>
                 <div v-if="headerIndex === 1" class="header-active-line"></div>
                 <div v-if="headerIndex === 1" class="header-active-triangle"></div>
             </div>
@@ -86,12 +86,12 @@ const toDetails = (id) => {
                 <div v-if="headerIndex === 4" class="header-active-triangle"></div>
             </div>
             <div class="view-header-box text-nowrap" @click="changIndex(5)">
-                <span>PETS 寵物</span>
+                <span>{{ $t('messages.gotViewNavs[1]') }}</span>
                 <div v-if="headerIndex === 5" class="header-active-line"></div>
                 <div v-if="headerIndex === 5" class="header-active-triangle"></div>
             </div>
             <div class="view-header-box text-nowrap" @click="changIndex(6)">
-                <span>職場熱話</span>
+                <span>{{ $t('messages.gotViewNavs[2]') }}</span>
                 <div v-if="headerIndex === 6" class="header-active-line"></div>
                 <div v-if="headerIndex === 6" class="header-active-triangle"></div>
             </div>
@@ -110,7 +110,7 @@ const toDetails = (id) => {
         <div class="hot-view-input">
             <form role="search" id="form-box">
                 <div class="input-group position-relative">
-                    <input class="form-control no-focus-border" type="text" placeholder="請輸入關鍵字，搜尋熱門內容"
+                    <input class="form-control no-focus-border" type="text" :placeholder="$t('messages.hotViewPlaceholder')"
                         aria-label="Search">
                     <span class="position-absolute top-50 end-0 translate-middle-y me-2">
                         <i class="bi bi-search"></i>
@@ -120,11 +120,11 @@ const toDetails = (id) => {
         </div>
 
         <div class="hot-article-container mt-5 mb-4">
-            <div class="article-list-box" v-for="(item, index) in newHotViewData" :key="item.id" @click="toDetails(item.id)">
+            <div class="article-list-box" v-for="(item, index) in newHotViewData" :key="item.id" @click="toDetails(item.id,index)">
                 <div class="article-img-box">
                     <img :src="item.src" alt="">
                 </div>
-                <div class="article-title-box text-start">{{ item.title }}</div>
+                <div class="article-title-box text-start" v-text="$t(`messages.hotViewList[${paginationIndex-1}][${index}].title`)"></div>
             </div>
         </div>
 

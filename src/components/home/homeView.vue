@@ -267,10 +267,10 @@ const handleLoaded = (e) => {
                         </div>
                         <div class="col-6">
                             <div class="row project-text-wrap">
-                                <div class="col-12 text-white">{{ item.title }}</div>
+                                <div class="col-12 text-white">{{ $t(`messages.iconDetails[${clickIndex}][${index}].title`) }}</div>
                                 <div class="col-10 mx-auto mt-1 mb-1" style="height: 1px;background-color: white;">
                                 </div>
-                                <div class="col-12 text-white">{{ item.describe }}</div>
+                                <div class="col-12 text-white">{{ $t(`messages.iconDetails[${clickIndex}][${index}].describe`) }}</div>
                             </div>
                         </div>
                     </div>
@@ -363,10 +363,14 @@ const handleLoaded = (e) => {
                     <div class="d-flex flex-column">
                         <div style="color: #999999;font-size: 16px;">{{ $t('messages.waitText') }}</div>
                         <div class="mt-3 mb-3">
-                            <img src="../../assets/images/index/app_store_img.png" style="height: 46px;" alt="">
+                            <a href="https://apple.co/3Z4uzcV" target="_blank">
+                                <img src="../../assets/images/index/app_store_img.png" style="height: 46px;" alt="">
+                            </a>
                         </div>
                         <div>
-                            <img src="../../assets/images/index/google_img.png" style="height: 46px;" alt="">
+                            <a href="https://bit.ly/3T725vu" target="_blank">
+                                <img src="../../assets/images/index/google_img.png" style="height: 46px;" alt="">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -423,12 +427,18 @@ const handleLoaded = (e) => {
                     <div class="d-flex flex-column">
                         <div style="color: #999999;font-size: 16px;">{{ $t('messages.waitText') }}</div>
                         <div class="mt-3 mb-3">
-                            <img src="../../assets/images/index/app_store_img.png" class="img-fluid"
-                                style="height: 46px;" alt="">
+                            <a href="https://apps.apple.com/hk/app/%E5%B9%AB%E6%90%9C%E6%9C%8D%E5%8B%99%E5%95%86/id6472167334"
+                                target="_blank">
+                                <img src="../../assets/images/index/app_store_img.png" class="img-fluid"
+                                    style="height: 46px;" alt="">
+                            </a>
                         </div>
                         <div>
-                            <img src="../../assets/images/index/google_img.png" class="img-fluid" style="height: 46px;"
-                                alt="">
+                            <a href="https://play.google.com/store/apps/details?id=com.bonshou.vendorapp"
+                                target="_blank">
+                                <img src="../../assets/images/index/google_img.png" class="img-fluid"
+                                    style="height: 46px;" alt="">
+                            </a>
                         </div>
                     </div>
                 </div>

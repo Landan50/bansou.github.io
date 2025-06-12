@@ -195,12 +195,13 @@ const BottomComponent = defineAsyncComponent(() =>
                     </div>
                 </div>
                 <div class="info-right-box position-relative">
-                    <div class="position-absolute info-shadow-text">PROVIDER</div>
+                    <div class="position-absolute info-shadow-text provider-shadow-box">PROVIDER</div>
                     <div class="info-left-content">
                         <div class="me-4">
                             <img src="../../assets/images/about/fws@2x.png" alt="">
                         </div>
-                        <div class="mt-2 mb-2 content-title-box text-white">{{ $t('messages.mAboutUseList2.rightList[0]') }}</div>
+                        <div class="mt-2 mb-2 content-title-box text-white">{{
+                            $t('messages.mAboutUseList2.rightList[0]') }}</div>
                         <div class="text-white me-4">{{ $t('messages.mAboutUseList2.rightList[1]') }}</div>
                         <div class="mt-1 text-white me-3">{{ $t('messages.mAboutUseList2.rightList[2]') }}</div>
                         <div class="info-btn-box mt-3 ms-2 me-4">{{ $t('messages.mAboutUseList2.rightList[3]') }}</div>
@@ -425,9 +426,9 @@ const BottomComponent = defineAsyncComponent(() =>
         background: #67C1FF !important;
         padding: 0 !important;
 
-        .info-shadow-text {
-            font-size: 80px !important;
-            top: 82px !important;
+        .provider-shadow-box {
+            font-size: 80px;
+            top: 82px;
         }
 
         .info-left-content {
@@ -460,6 +461,96 @@ const BottomComponent = defineAsyncComponent(() =>
         .header-text3 {
             font-size: 17px;
         }
+    }
+}
+
+@media (min-width: 1620px) and (max-width: 1810px) {
+    .content-title-box {
+        font-size: 32px !important;
+    }
+
+    .info-shadow-text {
+        font-size: 82px !important;
+    }
+
+    .provider-shadow-box {
+        font-size: 72px !important;
+    }
+}
+
+@media (min-width: 1430px) and (max-width: 1619px) {
+    .content-title-box {
+        font-size: 28px !important;
+    }
+
+    .info-shadow-text {
+        font-size: 72px !important;
+    }
+
+    .provider-shadow-box {
+        font-size: 64px !important;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1429px) {
+    .content-title-box {
+        font-size: 24px !important;
+    }
+
+    .info-shadow-text {
+        font-size: 64px !important;
+    }
+
+    .provider-shadow-box {
+        font-size: 55px !important;
+    }
+}
+
+@media (min-width: 1100px) and (max-width: 1279px) {
+    .content-title-box {
+        font-size: 20px !important;
+    }
+
+    .info-shadow-text {
+        font-size: 59px !important;
+    }
+
+    .provider-shadow-box {
+        font-size: 52px !important;
+    }
+}
+
+@media (min-width: 880px) and (max-width: 1099px) {
+    .content-title-box {
+        font-size: 16px !important;
+    }
+
+    .info-shadow-text {
+        font-size: 48px !important;
+    }
+
+    .provider-shadow-box {
+        font-size: 46px !important;
+    }
+}
+
+@media (max-width: 879px) {
+    .content-title-box {
+        font-size: 12px !important;
+    }
+
+    .info-shadow-text {
+        font-size: 42px !important;
+    }
+
+    .provider-shadow-box {
+        font-size: 38px !important;
+    }
+}
+
+@media (max-width: 960px) {
+    .info-btn-box {
+        font-size: 12px;
     }
 }
 </style>

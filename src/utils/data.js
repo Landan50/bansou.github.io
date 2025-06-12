@@ -18,9 +18,9 @@ import finance from "@/assets/images/index/finance.png";
 import realEstate from "@/assets/images/index/realEstate.png";
 import food from "@/assets/images/index/food.png";
 import person from "@/assets/images/index/person.png";
-import design from "@/assets/images/index/design.png";
-import consult from "@/assets/images/index/consult.png";
-import law from "@/assets/images/index/law.png";
+import law from "@/assets/images/index/design.png";
+import design from "@/assets/images/index/consult.png";
+import consult from "@/assets/images/index/law.png";
 import secure from "@/assets/images/index/secure.png";
 import environment from "@/assets/images/index/environment.png";
 import agriculture from "@/assets/images/index/agriculture.png";
@@ -326,581 +326,555 @@ export const indexRunData = [
     [
         {
             id: "2001",
-            src: wangp1Tu,
-            title: "清潔消毒",
-            describe: "經驗了得好幫手"
+            src: wangp1Tu
         },
         {
             id: "2002",
-            src: wangp2Tu,
-            title: "家居維修",
-            describe: "服務超過數萬家庭"
+            src: wangp2Tu
         },
         {
             id: "2003",
-            src: wangp3Tu,
-            title: "通渠服務",
-            describe: "專業師傅信得過"
+            src: wangp3Tu
         }
     ],
     [
         {
             id: "2004",
-            src: beautyCare1,
-            title: "美甲美睫",
-            describe: "指尖到睫毛靚到爆鏡"
+            src: beautyCare1
         },
         {
             id: "2005",
-            src: beautyCare2,
-            title: "美容護膚",
-            describe: "美肌嫩肌就是你"
+            src: beautyCare2
         },
         {
             id: "2006",
-            src: beautyCare3,
-            title: "醫學美容",
-            describe: "零痛逆齡靚到唔使P圖"
+            src: beautyCare3
         }
     ],
     [
         {
             id: "2007",
-            src: pet1,
-            title: "寵物寄養",
-            describe: "毛孩住得開心過渡假"
+            src: pet1
         },
         {
             id: "2008",
-            src: pet2,
-            title: "寵物美容",
-            describe: "主子即刻變明星"
+            src: pet2
         },
         {
             id: "2009",
-            src: pet3,
-            title: "寵物醫療",
-            describe: "急症即時搶救唔使等"
+            src: pet3
         }
     ],
     [
         {
             id: "2010",
-            src: health1,
-            title: "健康檢查",
-            describe: "為你專業把關"
+            src: health1
         },
         {
             id: "2011",
-            src: health2,
-            title: "推拿按摩",
-            describe: "鬆筋活絡疲勞即消失"
+            src: health2
         },
         {
             id: "2012",
-            src: health3,
-            title: "上門護理",
-            describe: "專業照護長者安心之選"
+            src: health3
         }
     ],
     [
         {
             id: "2013",
-            src: photo1,
-            title: "婚禮攝影",
-            describe: "捕捉感動愛瞬間全紀錄"
+            src: photo1
         },
         {
             id: "2014",
-            src: photo2,
-            title: "活動攝影",
-            describe: "精彩即時捕捉"
+            src: photo2
         },
         {
             id: "2015",
-            src: photo3,
-            title: "人像攝影",
-            describe: "捕捉神韻IG變KOL"
+            src: photo3
         }
     ],
     [
         {
             id: "2016",
-            src: pregnancy1,
-            title: "陪月服務",
-            describe: "湊B秘技全傳授"
+            src: pregnancy1
         },
         {
             id: "2017",
-            src: pregnancy2,
-            title: "月子服務",
-            describe: "專業知識湊B零壓力"
+            src: pregnancy2
         },
         {
             id: "2018",
-            src: pregnancy3,
-            title: "產後修復",
-            describe: "專業呵護由內到外"
+            src: pregnancy3
         }
     ],
     [
         {
             id: "2019",
-            src: train1,
-            title: "學術輔導",
-            describe: "弱科變強項成績即跳級"
+            src: train1
         },
         {
             id: "2020",
-            src: train2,
-            title: "語言課程",
-            describe: "日韓英法小眾語流利過母語"
+            src: train2
         },
         {
             id: "2021",
-            src: train3,
-            title: "舞蹈課程",
-            describe: "由新手變Dancer自信爆棚"
+            src: train3
         }
     ],
     [
         {
             id: "2022",
-            src: wedding1,
-            title: "婚禮策劃",
-            describe: "打造屬於自己的婚禮"
+            src: wedding1
         },
         {
             id: "2023",
-            src: wedding2,
-            title: "婚禮場地佈置",
-            describe: "夢幻婚禮場景"
+            src: wedding2
         },
         {
             id: "2024",
-            src: wedding3,
-            title: "婚禮紀念品",
-            describe: "獨家訂製紀念永留存"
+            src: wedding3
         }
     ],
     [
         {
             id: "2025",
-            src: travel1,
-            title: "導遊",
-            describe: "地道玩樂達人"
+            src: travel1
         },
         {
             id: "2026",
-            src: travel2,
-            title: "私人司機",
-            describe: "全天候接送準時過鐘"
+            src: travel2
         },
         {
             id: "2027",
-            src: travel3,
-            title: "露營設備租賃",
-            describe: "齊全租借即借即出發"
+            src: travel3
         }
     ],
     [
         {
             id: "2028",
-            src: IT1,
-            title: "軟件及應用程式開發",
-            describe: "度身編碼功能搞掂"
+            src: IT1
         },
         {
             id: "2029",
-            src: IT2,
-            title: "網絡安全",
-            describe: "防駭專家，資料零外洩"
+            src: IT2
         },
         {
             id: "2030",
-            src: IT3,
-            title: "智能家居",
-            describe: "聲控全屋懶人救星"
+            src: IT3
         }
     ],
     [
         {
             id: "2031",
-            src: car1,
-            title: "汽車維修",
-            describe: "驗車包Pass慳油又夠力"
+            src: car1
         },
         {
             id: "2032",
-            src: car2,
-            title: "汽車清洗",
-            describe: "閃亮過新車"
+            src: car2
         },
         {
             id: "2033",
-            src: car3,
-            title: "車胎服務",
-            describe: "爆胎急救速速搞掂"
+            src: car3
         }
     ],
     [
         {
             id: "2034",
-            src: children1,
-            title: "幼兒照顧",
-            describe: "愛心陪玩家長放心走"
+            src: children1
         },
         {
             id: "2035",
-            src: children2,
-            title: "兒童派對策劃",
-            describe: "主題玩樂開心爆棚"
+            src: children2
         },
         {
             id: "2036",
-            src: children3,
-            title: "兒童攝影",
-            describe: "捕捉童真笑容永留存"
+            src: children3
         }
     ],
     [
         {
             id: "2037",
-            src: art1,
-            title: "繪畫課程",
-            describe: "新手變大師"
+            src: art1
         },
         {
             id: "2038",
-            src: art2,
-            title: "音樂表演",
-            describe: "現場Live Band氣氛即High爆"
+            src: art2
         },
         {
             id: "2039",
-            src: art3,
-            title: "面部彩繪",
-            describe: "Party必搶焦點"
+            src: art3
         }
     ],
     [
         {
             id: "2040",
-            src: model1,
-            title: "女模",
-            describe: "不同風格任選"
+            src: model1
         },
         {
             id: "2041",
-            src: model2,
-            title: "兒童模特",
-            describe: "專業培訓自信閃耀"
+            src: model2
         },
         {
             id: "2042",
-            src: model3,
-            title: "運動模特",
-            describe: "身形爆肌好身材"
+            src: model3
         }
     ],
     [
         {
             id: "2043",
-            src: maintenance1,
-            title: "家電維修",
-            describe: "即Call即到快狠準搞掂"
+            src: maintenance1
         },
         {
             id: "2044",
-            src: maintenance2,
-            title: "家具修復",
-            describe: "手藝翻新殘舊變翻靚"
+            src: maintenance2
         },
         {
             id: "2045",
-            src: maintenance3,
-            title: "電梯維護",
-            describe: "故障即Call即到唔使困𨋢"
+            src: maintenance3
         }
     ],
     [
         {
             id: "2046",
-            src: market1,
-            title: "社交媒體營銷",
-            describe: "爆Like策略流量即時Up"
+            src: market1
         },
         {
             id: "2047",
-            src: market2,
-            title: "搜索引擎優化",
-            describe: "搜尋榜首客源自然嚟"
+            src: market2
         },
         {
             id: "2048",
-            src: market3,
-            title: "品牌與市場調查",
-            describe: "大數據分析生意策略即時Up"
+            src: market3
         }
     ],
     [
         {
             id: "2049",
-            src: financial1,
-            title: "會計服務",
-            describe: "理財報稅數目零出錯"
+            src: financial1
         },
         {
             id: "2050",
-            src: financial2,
-            title: "稅務諮詢",
-            describe: "合法慳稅數目零甩漏"
+            src: financial2
         },
         {
             id: "2051",
-            src: financial3,
-            title: "貸款顧問",
-            describe: "度身方案价钱相量"
+            src: financial3
         }
     ],
     [
         {
             id: "2052",
-            src: room1,
-            title: "租賃服務",
-            describe: "器材×場地彈性即搞定"
+            src: room1
         },
         {
             id: "2053",
-            src: room2,
-            title: "房屋評估",
-            describe: "樓市專家估值精準"
+            src: room2
         },
         {
             id: "2054",
-            src: room3,
-            title: "裝修設計",
-            describe: "度身訂造空間大改造"
+            src: room3
         }
     ],
     [
         {
             id: "2055",
-            src: food1,
-            title: "食材採購",
-            describe: "今晚吃咩餸"
+            src: food1
         },
         {
             id: "2056",
-            src: food2,
-            title: "宴會承辦",
-            describe: "豪華到會賓客讚到冧"
+            src: food2
         },
         {
             id: "2057",
-            src: food3,
-            title: "私人廚師",
-            describe: "廚藝了得食到舔舔脷"
+            src: food3
         }
     ],
     [
         {
             id: "2058",
-            src: person1,
-            title: "私人健身教練",
-            describe: "操Fit身形目標即達"
+            src: person1
         },
         {
             id: "2059",
-            src: person2,
-            title: "家庭管家",
-            describe: "貼身助理大小事一腳踢"
+            src: person2
         },
         {
             id: "2060",
-            src: person3,
-            title: "私人旅行規劃",
-            describe: "獨家行程玩盡秘景"
+            src: person3
         }
     ],
     [
         {
             id: "2061",
-            src: design1,
-            title: "平面設計",
-            describe: "吸睛構圖客製化爆Like"
+            src: design1
         },
         {
             id: "2062",
-            src: design2,
-            title: "室內設計",
-            describe: "空間大改造蝸居也有大用途"
+            src: design2
         },
         {
             id: "2063",
-            src: design3,
-            title: "服裝設計",
-            describe: "獨家剪裁穿出你風格"
+            src: design3
         }
     ],
     [
         {
             id: "2064",
-            src: consulte1,
-            title: "商業策略諮詢",
-            describe: "策略致勝生意即時升呢"
+            src: consulte1
         },
         {
             id: "2065",
-            src: consulte2,
-            title: "市場營銷諮詢",
-            describe: "數據分析生意即升呢"
+            src: consulte2
         },
         {
             id: "2066",
-            src: consulte3,
-            title: "法律諮詢",
-            describe: "專業團隊權益保障"
+            src: consulte3
         }
     ],
     [
         {
             id: "2067",
-            src: raw1,
-            title: "民事法律諮詢",
-            describe: "律師坐陣權益即時保"
+            src: raw1
         },
         {
             id: "2068",
-            src: raw2,
-            title: "稅務諮詢",
-            describe: "合法慳稅數目零甩漏"
+            src: raw2
         },
         {
             id: "2069",
-            src: raw3,
-            title: "知識產權服務",
-            describe: "創意保障山寨無得抄"
+            src: raw3
         }
     ],
     [
         {
             id: "2070",
-            src: safe1,
-            title: "家庭安全系統",
-            describe: "智能監控賊佬無位入！"
+            src: safe1
         },
         {
             id: "2071",
-            src: safe2,
-            title: "商業安保服務",
-            describe: "防盜系統賊仔無得埋"
+            src: safe2
         },
         {
             id: "2072",
-            src: safe3,
-            title: "保險箱服務",
-            describe: "保安嚴密100%安心"
+            src: safe3
         }
     ],
     [
         {
             id: "2073",
-            src: ep1,
-            title: "廢品回收",
-            describe: "環保變現雙贏"
+            src: ep1
         },
         {
             id: "2074",
-            src: ep2,
-            title: "水質檢測",
-            describe: "專業把關飲用即安心"
+            src: ep2
         },
         {
             id: "2075",
-            src: ep3,
-            title: "空氣檢測",
-            describe: "專業測檢呼吸即刻安心"
+            src: ep3
         }
     ],
     [
         {
             id: "2076",
-            src: ah1,
-            title: "花卉種植",
-            describe: "綠化專家園藝即變靚"
+            src: ah1
         },
         {
             id: "2077",
-            src: ah2,
-            title: "害蟲控制",
-            describe: "快狠準搞掂"
+            src: ah2
         },
         {
             id: "2078",
-            src: ah3,
-            title: "園藝設計",
-            describe: "綠化空間屋企變氧吧"
+            src: ah3
         }
     ],
     [
         {
             id: "2079",
-            src: logistics1,
-            title: "快遞服務",
-            describe: "閃電送達"
+            src: logistics1
         },
         {
             id: "2080",
-            src: logistics2,
-            title: "搬屋服務",
-            describe: "零損壞幫你搞掂"
+            src: logistics2
         },
         {
             id: "2081",
-            src: logistics3,
-            title: "倉儲服務",
-            describe: "尺寸大小随意挑"
+            src: logistics3
         }
     ],
     [
         {
             id: "2082",
-            src: other1,
-            title: "殯葬服務",
-            describe: "莊重周全走最後一程"
+            src: other1
         },
         {
             id: "2083",
-            src: other2,
-            title: "偵探調查",
-            describe: "專業跟蹤真相浮面"
+            src: other2
         },
         {
             id: "2084",
-            src: other3,
-            title: "掌相風水",
-            describe: "趨吉避兇運程即轉好"
+            src: other3
         }
     ],
     [
         {
             id: "2085",
-            src: community1,
-            title: "長者照顧",
-            describe: "醫護團隊隨時支援"
+            src: community1
         },
         {
             id: "2086",
-            src: community2,
-            title: "食物銀行",
-            describe: "食物捐贈助人飽肚"
+            src: community2
         },
         {
             id: "2087",
-            src: community3,
-            title: "就職支援",
-            describe: "履歷×面試助你秒殺HR"
+            src: community3
         }
     ]
+]
+
+export const classData = [
+    {
+        id: "3001",
+        url: home_serve,
+        contentLength: 3
+    },
+    {
+        id: "3002",
+        url: beautyCare,
+        contentLength: 3
+    },
+    {
+        id: "3003",
+        url: animal,
+        contentLength: 3
+    },
+    {
+        id: "3004",
+        url: healthCare,
+        contentLength: 2
+    },
+    {
+        id: "3005",
+        url: photoGraphy,
+        contentLength: 5
+    },
+    {
+        id: "3006",
+        url: pregnancy,
+        contentLength: 5
+    },
+    {
+        id: "3007",
+        url: learn,
+        contentLength: 8
+    },
+    {
+        id: "3008",
+        url: wedding,
+        contentLength: 6
+    },
+    {
+        id: "3009",
+        url: travel,
+        contentLength: 5
+    },
+    {
+        id: "3010",
+        url: IT,
+        contentLength: 5
+    },
+    {
+        id: "3011",
+        url: car,
+        contentLength: 5
+    },
+    {
+        id: "3012",
+        url: children,
+        contentLength: 5
+    },
+    {
+        id: "3013",
+        url: art,
+        contentLength: 5
+    },
+    {
+        id: "3014",
+        url: model,
+        contentLength: 3
+    },
+    {
+        id: "3015",
+        url: maintenance,
+        contentLength: 5
+    },
+    {
+        id: "3016",
+        url: market,
+        contentLength: 5
+    },
+    {
+        id: "3017",
+        url: finance,
+        contentLength: 4
+    },
+    {
+        id: "3018",
+        url: realEstate,
+        contentLength: 5
+    },
+    {
+        id: "3019",
+        url: food,
+        contentLength: 4
+    },
+    {
+        id: "3020",
+        url: person,
+        contentLength: 5
+    },
+    {
+        id: "3021",
+        url: law,
+        contentLength: 5
+    },
+    {
+        id: "3022",
+        url: design,
+        contentLength: 3
+    },
+    {
+        id: "3023",
+        url: consult,
+        contentLength: 5
+    },
+    {
+        id: "3024",
+        url: secure,
+        contentLength: 5
+    },
+    {
+        id: "3025",
+        url: agriculture,
+        contentLength: 4
+    },
+    {
+        id: "3026",
+        url: environment,
+        contentLength: 6
+    },
+    {
+        id: "3027",
+        url: logistics,
+        contentLength: 4
+    },
+    {
+        id: "3028",
+        url: community,
+        contentLength: 4
+    },
+    {
+        id: "3029",
+        url: other,
+        contentLength: 2
+    }
 ]

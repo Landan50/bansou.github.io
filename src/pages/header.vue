@@ -1,14 +1,16 @@
 <script setup>
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRouter, useRoute, RouterView } from 'vue-router';
 import { useI18nTools } from '../tools/i18nTools';
-import { RouterView } from 'vue-router';
+import { Dropdown } from 'bootstrap';
 
 const { locale } = useI18nTools();
+const router = useRouter();
+const route = useRoute();
 // const pageIndex = ref(0);
 
 const changeLang = (type) => {
     localStorage.setItem('lang', type);
-    locale.value = type;
+    locale.value = type; // 更新i18n语言
 }
 
 //滚动到一定的距离头部固定
@@ -28,6 +30,15 @@ const fixedTop = () => {
     }
 }
 
+//路由跳转
+const navigateTo = (url) => {
+    router.push(url);
+}
+
+const backIndex = () => {
+    router.push('/');
+}
+
 // onMounted(() => {
 //     // document.addEventListener('scroll', fixedTop);
 // })
@@ -42,7 +53,7 @@ const fixedTop = () => {
     <!-- 一级导航栏 -->
     <nav class="navbar navbar-expand-lg" id="navbar-header-box" style="background-color: #FEB250;">
         <div class="container-fluid justify-content-lg-around">
-            <img src="../assets/images/index/logo@2x.png" class="img-fluid" id="header-left-icon">
+            <img src="../assets/images/index/logo@2x.png" class="img-fluid" id="header-left-icon" @click="backIndex">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -78,8 +89,8 @@ const fixedTop = () => {
                             <span class="text align-middle">{{ $t('messages.headerSelect["selectTitle"]') }}</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" @click="changeLang('ft')">繁體中文</a></li>
-                            <li><a class="dropdown-item" href="#" @click="changeLang('zh')">简体中文</a></li>
+                            <li class="common-mouse-style"><a class="dropdown-item" @click="changeLang('ft')">繁體中文</a></li>
+                            <li class="common-mouse-style"><a class="dropdown-item" @click="changeLang('zh')">简体中文</a></li>
                             <!-- <li>
                                 <hr class="dropdown-divider">
                             </li> -->
@@ -89,9 +100,9 @@ const fixedTop = () => {
                     <!-- <li class="nav-item ms-lg-3 mb-2 mb-lg-0" id="button-box" style="background-color: white;">
                         <span class="button-text">{{ $t('messages.headerSelect["register"]') }}</span>
                     </li> -->
-                    <li class="nav-item ms-lg-3" id="button-box" style="background-color: white;">
+                    <!-- <li class="nav-item ms-lg-3" id="button-box" style="background-color: white;">
                         <span class="button-text">{{ $t('messages.headerSelect["login"]') }}</span>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -107,10 +118,9 @@ const fixedTop = () => {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent2">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
-                    <li class="nav-item dropdown mx-lg-3">
-                        <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center" aria-labelledby="dropdownMenuButton">
+                    <li class="nav-item dropdown mx-lg-3" @click="navigateTo('/aboutUs/1')">
+                        <a class="nav-link no-caret" role="button" aria-expanded="false">
                             {{ $t('messages.subHeaderSelect[7]["title"]') }}
                         </a>
                         <!-- <ul class="dropdown-menu">
@@ -250,15 +260,14 @@ const fixedTop = () => {
                                     }}</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown mx-lg-3">
-                        <a class="nav-link dropdown-toggle border-bottom border-transparent hover-border-primary"
-                            href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item dropdown mx-lg-3" @click="navigateTo('/serviceClass')">
+                        <a class="nav-link" role="button" aria-expanded="false">
                             <img src="../assets/images/index/type@2x.png" class="img-fluid me-1" alt=""
                                 id="all-type-icon">
                             <span class="text align-middle">
                                 {{ $t('messages.subHeaderSelect[4]["title"]') }}</span>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-center">
+                        <!-- <ul class="dropdown-menu dropdown-menu-center">
                             <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][0]')
                             }}</a></li>
                             <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][1]')
@@ -309,7 +318,7 @@ const fixedTop = () => {
                             }}</a></li>
                             <li><a class="dropdown-item" href="#">{{ $t('messages.subHeaderSelect[4]["select"][24]')
                             }}</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
                     <!-- <li class="nav-item dropdown mx-lg-3">
                         <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-bs-toggle="dropdown"
@@ -400,6 +409,7 @@ const fixedTop = () => {
 #header-left-icon {
     width: 55px;
     height: 38px;
+    cursor: pointer;
 }
 
 #header-right-icon {

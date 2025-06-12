@@ -108,6 +108,10 @@ input {
   }
 }
 
+.common-mouse-style {
+  cursor: pointer;
+}
+
 ul {
   margin-bottom: 0 !important;
 }

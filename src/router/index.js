@@ -12,6 +12,7 @@ const memberUsePage = () => import('@/components/memberUse/memberUseView.vue')
 const hotViewPage = () => import('@/components/hotView/hotView.vue')
 const hotViewListPage = () => import('@/components/hotList/hotListView.vue')
 const hotViewDetailsPage = () => import('@/components/hotViewDetails/hotViewDetailsView.vue')
+const serviceClassPage = () => import('@/components/serviceClass/serviceClassView.vue')
 
 
 const routes = [
@@ -39,7 +40,7 @@ const routes = [
     },
     {
         name: 'aboutUs',
-        path: '/aboutUs',
+        path: '/aboutUs/:id',
         component: aboutUsPage
     },
     {
@@ -75,16 +76,21 @@ const routes = [
             },
             {
                 name: 'details',
-                path: 'details/:id/:page',
+                path: 'details/:id/:page/:arrIndex',
                 component: hotViewDetailsPage
             },
         ]
+    },
+    {
+        name: 'serviceClass',
+        path: '/serviceClass',
+        component: serviceClassPage
     }
 ]
 
 const router = createRouter({
-    history: createWebHashHistory('/bansou.github.io/'),
-    // history: createWebHistory(),
+    // history: createWebHashHistory('/bansou.github.io/'),
+    history: createWebHistory(),
     routes,
     scrollBehavior(to, from, scrollBehavior) {
         return new Promise((resolve, reject) => {
@@ -100,5 +106,11 @@ const router = createRouter({
         })
     }
 })
+
+// router.beforeEach((to, from, next) => {
+//     console.log('to', to);
+//     console.log('from', from);
+//     next();
+// })
 
 export default router;
